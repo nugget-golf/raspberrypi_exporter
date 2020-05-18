@@ -6,7 +6,7 @@ if [[ $EUID -ne 0 ]]; then
   exit 1
 fi
 
-curl -sL "https://github.com/fahlke/raspberrypi_exporter/archive/master.zip" > "/tmp/raspberrypi_exporter.zip"
+curl -sL "https://github.com/zoide/raspberrypi_exporter/archive/master.zip" > "/tmp/raspberrypi_exporter.zip"
 unzip -qq -o "/tmp/raspberrypi_exporter.zip" -d "/tmp"
 
 mkdir -p "/tmp/textfile-collector"

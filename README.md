@@ -12,7 +12,7 @@ Prometheus exporter for Raspberry Pi metrics
 
 Installation
 
-    $ curl -fsSL "https://raw.githubusercontent.com/fahlke/raspberrypi_exporter/master/installer.sh" | sudo bash
+    $ curl -fsSL "https://raw.githubusercontent.com/zoide/raspberrypi_exporter/master/installer.sh" | sudo bash
 
 Check if the service is running
 
@@ -31,7 +31,7 @@ Check if the metrics are written to disk
 
 Uninstallation
 
-    $ curl -fsSL "https://raw.githubusercontent.com/fahlke/raspberrypi_exporter/master/uninstaller.sh" | sudo bash
+    $ curl -fsSL "https://raw.githubusercontent.com/zoide/raspberrypi_exporter/master/uninstaller.sh" | sudo bash
 
 ## References
 
