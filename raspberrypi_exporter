@@ -3,9 +3,12 @@
 set -eu
 
 VCGEN="$(command -v vcgencmd)"
-METRICS_FILE="/tmp/textfile-collector/raspberrypi-metrics.prom"
+METRICS_DIR="/tmp/textfile-collector"
+METRICS_FILE="${METRICS_DIR}/raspberrypi-metrics.prom"
 TMP_FILE="${METRICS_FILE}.tmp"
 PREFIX="rpi_"
+
+[[ ! -d ${METRICS_DIR} ]] && mkdir -p ${METRICS_DIR}
 
 # remove existing files
 rm -f "${TMP_FILE}"
@@ -32,7 +35,7 @@ done
 } >> "${TMP_FILE}"
 GPU_TEMP_CELSIUS="$( $VCGEN measure_temp | cut -d'=' -f2 | cut -d"'" -f1 )" || true
 GPU_TEMP_CELSIUS="${GPU_TEMP_CELSIUS:=0}"
-echo "${PREFIX}gpu_temperature{sensor=\"bcm2835\",type=\"gpu\"} ${GPU_TEMP_CELSIUS}" >> "${TMP_FILE}"
+echo "${PREFIX}temperature{sensor=\"bcm2835\",type=\"gpu\"} ${GPU_TEMP_CELSIUS}" >> "${TMP_FILE}"
 
 # get component frequencies
 {
