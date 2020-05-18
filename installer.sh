@@ -9,7 +9,7 @@ fi
 curl -sL "https://github.com/fahlke/raspberrypi_exporter/archive/master.zip" > "/tmp/raspberrypi_exporter.zip"
 unzip -qq -o "/tmp/raspberrypi_exporter.zip" -d "/tmp"
 
-mkdir -p "/var/lib/node_exporter/textfile_collector"
+mkdir -p "/tmp/textfile-collector"
 
 mv "/tmp/raspberrypi_exporter-master/raspberrypi_exporter" "/usr/local/sbin/"
 chmod +x "/usr/local/sbin/raspberrypi_exporter"
