@@ -8,7 +8,10 @@ METRICS_FILE="${METRICS_DIR}/raspberrypi-metrics.prom"
 TMP_FILE="${METRICS_FILE}.tmp"
 PREFIX="rpi_"
 
-[[ ! -d ${METRICS_DIR} ]] && mkdir -p ${METRICS_DIR}
+if [[ ! -d ${METRICS_DIR} ]]; then
+  mkdir -p ${METRICS_DIR}
+  chmod a+rwx ${METRICS_DIR}
+fi
 
 # remove existing files
 rm -f "${TMP_FILE}"
