@@ -6,10 +6,10 @@ if [[ $EUID -ne 0 ]]; then
   exit 1
 fi
 
-curl -sL "https://github.com/zoide/raspberrypi_exporter/archive/master.zip" > "/tmp/raspberrypi_exporter.zip"
+curl -sL "https://github.com/napkindrawing/raspberrypi_exporter/archive/master.zip" > "/tmp/raspberrypi_exporter.zip"
 unzip -qq -o "/tmp/raspberrypi_exporter.zip" -d "/tmp"
 
-mkdir -p "/tmp/textfile-collector"
+[ -d "/var/lib/node_exporter" ] || mkdir -p "/var/lib/node_exporter"
 
 mv "/tmp/raspberrypi_exporter-master/raspberrypi_exporter" "/usr/local/sbin/"
 chmod +x "/usr/local/sbin/raspberrypi_exporter"
