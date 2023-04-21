@@ -6,6 +6,8 @@ if [[ $EUID -ne 0 ]]; then
   exit 1
 fi
 
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/nugget-golf/raspberrypi_exporter/master/uninstaller.sh)"
+
 [ -d "/var/lib/node_exporter" ] || mkdir -p "/var/lib/node_exporter"
 
 systemctl stop raspberrypi_exporter.timer
