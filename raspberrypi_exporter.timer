@@ -3,7 +3,7 @@ Description=Timer for the Raspberry Pi Prometheus exporter
 
 [Timer]
 OnBootSec=0min
-OnCalendar=*:*:0,15,30,45
+OnCalendar=*:0/2
 
 [Install]
 WantedBy=timers.target
