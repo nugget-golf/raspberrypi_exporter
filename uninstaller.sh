@@ -10,7 +10,7 @@ systemctl stop raspberrypi_exporter.timer
 systemctl disable raspberrypi_exporter.timer
 systemctl daemon-reload
 
-rm -f "/usr/local/sbin/raspberrypi_exporter"
+rm -f "/usr/local/bin/raspberrypi_exporter"
 
 rm -f "/etc/systemd/system/raspberrypi_exporter.service"
 rm -f "/etc/systemd/system/raspberrypi_exporter.timer"
