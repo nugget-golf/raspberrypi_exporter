@@ -6,23 +6,17 @@ if [[ $EUID -ne 0 ]]; then
   exit 1
 fi
 
-curl -sL "https://github.com/napkindrawing/raspberrypi_exporter/archive/master.zip" > "/tmp/raspberrypi_exporter.zip"
-unzip -qq -o "/tmp/raspberrypi_exporter.zip" -d "/tmp"
-
 [ -d "/var/lib/node_exporter" ] || mkdir -p "/var/lib/node_exporter"
-
-mv "/tmp/raspberrypi_exporter-master/raspberrypi_exporter" "/usr/local/sbin/"
-chmod +x "/usr/local/sbin/raspberrypi_exporter"
-
-mv "/tmp/raspberrypi_exporter-master/raspberrypi_exporter.service" "/etc/systemd/system/"
-mv "/tmp/raspberrypi_exporter-master/raspberrypi_exporter.timer" "/etc/systemd/system/"
 
 systemctl stop raspberrypi_exporter.timer
 systemctl disable raspberrypi_exporter.timer
 
+curl -s -L "https://raw.githubusercontent.com/nugget-golf/raspberrypi_exporter/master/raspberrypi_exporter" --output "/usr/local/bin/raspberrypi_exporter"
+chmod +x /usr/local/bin/raspberrypi_exporter
+
+curl -s -L "https://raw.githubusercontent.com/nugget-golf/raspberrypi_exporter/master/raspberrypi_exporter.service" --output "/etc/systemd/system/raspberrypi_exporter.service"
+curl -s -L "https://raw.githubusercontent.com/nugget-golf/raspberrypi_exporter/master/raspberrypi_exporter.timer" --output "/etc/systemd/system/raspberrypi_exporter.timer"
+
 systemctl daemon-reload
 systemctl enable raspberrypi_exporter.timer
 systemctl start raspberrypi_exporter.timer
-
-rm -f "/tmp/raspberrypi_exporter.zip"
-rm -rf "/tmp/raspberrypi_exporter-master"
