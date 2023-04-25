@@ -8,8 +8,6 @@ fi
 
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/nugget-golf/raspberrypi_exporter/master/uninstaller.sh)"
 
-[ -d "/var/lib/node_exporter" ] || mkdir -p "/var/lib/node_exporter"
-
 systemctl stop raspberrypi_exporter.timer
 systemctl disable raspberrypi_exporter.timer
 

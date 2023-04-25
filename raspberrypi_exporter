@@ -3,7 +3,7 @@
 set -eu
 
 VCGEN="$(command -v vcgencmd)"
-METRICS_DIR="/var/lib/node_exporter"
+METRICS_DIR="/run/node_exporter"
 METRICS_FILE="${METRICS_DIR}/raspberrypi-metrics.prom"
 TMP_FILE="${METRICS_FILE}.tmp"
 PREFIX="rpi_"

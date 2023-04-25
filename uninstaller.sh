@@ -14,5 +14,3 @@ rm -f "/usr/local/bin/raspberrypi_exporter"
 
 rm -f "/etc/systemd/system/raspberrypi_exporter.service"
 rm -f "/etc/systemd/system/raspberrypi_exporter.timer"
-
-rm -f "/var/lib/node_exporter/raspberrypi-metrics.prom"

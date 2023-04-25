@@ -4,7 +4,7 @@ Prometheus exporter for Raspberry Pi metrics
 ## Prerequisites
 
 - Prometheus node_exporter must be installed
-- node_exporter ```--collector.textfile.directory``` must be set to ```/var/lib/node_exporter```
+- node_exporter ```--collector.textfile.directory``` must be set to ```/run/node_exporter```
 - ```curl``` must be installed
 - ```vcgencmd``` must be installed (default in Raspbian)
 
@@ -20,14 +20,6 @@ Check if the service is running
     ● raspberrypi_exporter.timer - Timer for the Raspberry Pi Prometheus exporter
        Loaded: loaded (/etc/systemd/system/raspberrypi_exporter.timer; enabled; vendor preset: enabled)
        Active: active (waiting) since Mon 2017-12-18 20:54:40 UTC; 5min ago
-
-Check if the metrics are written to disk
-
-    $ grep -E "^rpi" /var/lib/node_exporter/raspberrypi-metrics.prom
-    rpi_temperature_cpu 53.2
-    rpi_temperature_bcm2835 53.7
-    rpi_frequency_arm 1200000000
-    ...
 
 Uninstallation
 
